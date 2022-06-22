@@ -1,0 +1,31 @@
+{
+  "name": "cloudinary-updload",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "NODE_ENV=dev && export $(cat .env | xargs) && env && directus-extension build",
+    "dev": "NODE_ENV=dev && export $(cat .env | xargs) && env && directus-extension build --no-minify --watch"
+  },
+  "directus:extension": {
+    "type": "interface",
+    "path": "index.js",
+    "source": "src/index.js",
+    "host": "^9.11.0"
+  },
+  "devDependencies": {
+    "@directus/extensions-sdk": "9.11.0",
+    "js-sha1": "^0.6.0",
+    "vue": "^3.2.31"
+  },
+  "dependencies": {
+    "@rollup/plugin-replace": "^4.0.0",
+    "axios": "^0.27.2",
+    "dotenv": "^16.0.1",
+    "mount-vue-component": "^0.9.5",
+    "rollup-plugin-inject-process-env": "^1.3.1",
+    "vue-file-agent": "^1.7.3",
+    "vue2-dropzone": "^3.6.0",
+    "vue3-dropzone": "^0.0.7"
+  }
+}
