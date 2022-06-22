@@ -4,8 +4,8 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "build": "NODE_ENV=dev && export $(cat .env | xargs) && env && directus-extension build",
-    "dev": "NODE_ENV=dev && export $(cat .env | xargs) && env && directus-extension build --no-minify --watch"
+    "build": "export $(cat .env | xargs) && env && directus-extension build",
+    "dev": "export $(cat .env | xargs) && env && directus-extension build --no-minify --watch"
   },
   "directus:extension": {
     "type": "interface",
