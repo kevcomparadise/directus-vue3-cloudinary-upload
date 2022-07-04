@@ -14,3 +14,7 @@ Simple interface for upload/read image on your cloudinary
 ## How to use
 1. Create new standard field with `string` type
 2. For interface select **Cloudinary Upload**.
+
+## TODO
+- [ ] Update field value (get JSON instead of link)
+- [ ] Interface option
