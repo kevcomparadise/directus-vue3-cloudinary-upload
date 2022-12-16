@@ -33,6 +33,7 @@ export default {
     const apiUrl = ref('__CDN_API_URL__');
     const apiSecret = ref('__CDN_API_SECRET__');
     const apiKey = ref('__CDN_API_KEY__');
+    const apiFolder = ref('__CDN_API_FOLDER__');
     const previewUrl = ref('')
     const uploadProgress = ref(false)
     const values = inject('values')
@@ -77,7 +78,8 @@ export default {
      */
     const generateFileName = (fileName) => {
       const name = String(fileName).toLowerCase().replace(/ /g, '_')
-      return `${props.collection}/${name}`
+      const folder = apiFolder.value !== "undefined" ? `${apiFolder.value}/` : ''
+      return `${folder}${props.collection}/${name}`
     }
 
     const {getRootProps, getInputProps, isDragAccept, ...rest} = useDropzone({
