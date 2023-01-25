@@ -107,7 +107,9 @@ export default {
     async function onDrop(acceptFiles, rejectReasons) {
       if (isDragAccept) {
         let dataUrl = await urlToBase64(acceptFiles[0])
-        const fileName = generateFileName(acceptFiles[0].name)
+        let fileName = generateFileName(acceptFiles[0].name)
+        // Remove extension
+        fileName = fileName.replace(/\.[^/.]+$/, "");
         const timestamp = (new Date()).getTime().toString()
         const formData = new FormData()
         formData.append('file', dataUrl)
