@@ -3,3 +3,4 @@
 node_modules
 yarn.lock
 index.js
+.DS_Store
