@@ -20,6 +20,14 @@ import axios from 'axios'
 export default {
   name: "UseDropzoneDemo",
   props: {
+    folder : {
+      type: String,
+      default: '',
+    },
+    collection_as_subfolder: {
+      type: Boolean,
+      default: true,
+    },
     value: {
       type: String,
       default: null,
@@ -30,12 +38,19 @@ export default {
     },
   },
   setup(props, {emit}) {
+
     const apiUrl = ref('__CDN_API_URL__');
     const apiSecret = ref('__CDN_API_SECRET__');
     const apiKey = ref('__CDN_API_KEY__');
+
     const previewUrl = ref('')
     const uploadProgress = ref(false)
     const values = inject('values')
+
+    let folder = props.folder ? `${props.folder}/` : ''
+    if (props.collection_as_subfolder) {
+      folder = `${folder}${props.collection}/`
+    }
 
     const toggleProgress = () => uploadProgress.value = !uploadProgress.value;
     /**
@@ -73,11 +88,11 @@ export default {
 
     /**
      * @param fileName
-     * @returns {`${string}/${string}`}
+     * @returns {string}
      */
     const generateFileName = (fileName) => {
       const name = String(fileName).toLowerCase().replace(/ /g, '_')
-      return `${props.collection}/${name}`
+      return folder + name
     }
 
     const {getRootProps, getInputProps, isDragAccept, ...rest} = useDropzone({
