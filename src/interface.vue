@@ -162,10 +162,10 @@ export default {
 }
 
 #cloudinary-upload-dropzone .draggable-zone {
-  border-radius: 10px;
-  min-height: 200px;
+  min-height: 50vh;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: contain;
+  background-position: center;
 }
 
 #cloudinary-upload-dropzone .draggable-zone.is-dragged {
